@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q1\\k173613_Q1\\k173613_Q1.csproj": {}
+    "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\k173613_Q2.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q1\\k173613_Q1\\k173613_Q1.csproj": {
+    "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\k173613_Q2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q1\\k173613_Q1\\k173613_Q1.csproj",
-        "projectName": "k173613_Q1",
-        "projectPath": "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q1\\k173613_Q1\\k173613_Q1.csproj",
+        "projectUniqueName": "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\k173613_Q2.csproj",
+        "projectName": "k173613_Q2",
+        "projectPath": "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\k173613_Q2.csproj",
         "packagesPath": "C:\\Users\\Sameer Khowaja\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q1\\k173613_Q1\\obj\\",
+        "outputPath": "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Sameer Khowaja\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.30, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

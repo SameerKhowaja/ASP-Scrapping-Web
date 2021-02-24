@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "c2xkF3WHMj2RE+jxoBTZFJl9qACdTJ171JdV9fMAPJOflH020e1cT+tB+e/cC6l7i4n43GbS9HDBlMdDAKA6Yg==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\k173613_Q2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sameer Khowaja\\.nuget\\packages\\htmlagilitypack\\1.11.30\\htmlagilitypack.1.11.30.nupkg.sha512"
+  ],
+  "logs": []
+}
