@@ -4,6 +4,7 @@ using System.IO;
 using HtmlAgilityPack;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Xml;
 
 namespace k173613_Q2
 {
@@ -33,7 +34,6 @@ namespace k173613_Q2
                 i += 1;
             }
 
-            /*
             // Generate Folders
             DateTime currentDateTime = DateTime.Now;
             String mainFolder = Convert.ToString(currentDateTime).Replace(":", "-");
@@ -42,7 +42,6 @@ namespace k173613_Q2
             {
                 System.IO.Directory.CreateDirectory(@mainFolder+"/"+categories[j]);     // sub categories folders
             }
-            */
 
             // Time to scrap main data
             i = 0;
@@ -92,10 +91,44 @@ namespace k173613_Q2
             String[] scriptsNameArray = scriptsName.ToArray();
             String[] currentPrizeArray = currentPrize.ToArray();
 
+            /*
             for(int j=0; j<currentPrizeArray.Length; j++)
             {
                 Console.WriteLine("{0} --- {1}", scriptsNameArray[j], currentPrizeArray[j]);
             }
+            */
+
+            //Console.WriteLine(totalScripts);
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+
+            int kloop = 0;
+            String categoryPath = mainFolder;
+            for(int j=0; j<totalCategory; j++)
+            {
+                String CategoryName = categories[j];
+                Console.WriteLine(CategoryName);
+                for(int k=0; k<category_wise_count[j]; k++)
+                {
+                    XmlWriter writer = XmlWriter.Create(@categoryPath + "/" + CategoryName + "/" + scriptsNameArray[kloop] + ".xml", settings);
+                    writer.WriteStartDocument();
+
+                    writer.WriteStartElement("xml");
+                    writer.WriteStartElement("Scripts");
+                    writer.WriteElementString("Script", scriptsNameArray[kloop]);
+                    writer.WriteElementString("Price", currentPrizeArray[kloop]);
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
+                    writer.WriteEndDocument();
+                    writer.Flush();
+                    writer.Close();
+
+                    Console.WriteLine("{0} --- {1}", scriptsNameArray[kloop], currentPrizeArray[kloop]);
+                    kloop++;
+                }
+            }
+
+            Console.WriteLine("\nXML File is been Generated to Folder: " + mainFolder);
 
             Console.ReadLine();
         }
