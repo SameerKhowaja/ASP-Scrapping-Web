@@ -12,11 +12,22 @@ namespace k173613_Q2
     {
         static void Main(string[] args)
         {
-            //Console.Write("Enter File Name with path: ");
-            //String path = Console.ReadLine();
-            //string file_name = @path;
-            string file_name = @"D:\Summary23Feb21.html";
+            Console.Write("Enter File Name with path: ");
+            String path = Console.ReadLine();
+            string file_name = @path;
+            //string file_name = @"D:\Summary23Feb21.html";
+            try
+            {
+                string check = File.ReadAllText(file_name);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("File not found...!");
+                int code = 0;
+                Environment.Exit(code);
+            }
             string htmlFile = File.ReadAllText(file_name);
+
             // Console.WriteLine(htmlFile);
 
             var doc = new HtmlDocument();
@@ -35,8 +46,9 @@ namespace k173613_Q2
             }
 
             // Generate Folders
+            System.IO.Directory.CreateDirectory("AllRecords");
             DateTime currentDateTime = DateTime.Now;
-            String mainFolder = Convert.ToString(currentDateTime).Replace(":", "-");
+            String mainFolder = "AllRecords/" + Convert.ToString(currentDateTime).Replace(":", "-");
             System.IO.Directory.CreateDirectory(mainFolder);    // main folder
             for(int j=0; j<totalCategory; j++)
             {
@@ -110,7 +122,7 @@ namespace k173613_Q2
                 Console.WriteLine(CategoryName);
                 for(int k=0; k<category_wise_count[j]; k++)
                 {
-                    XmlWriter writer = XmlWriter.Create(@categoryPath + "/" + CategoryName + "/" + scriptsNameArray[kloop] + ".xml", settings);
+                    XmlWriter writer = XmlWriter.Create(categoryPath + "/" + CategoryName + "/" + scriptsNameArray[kloop] + ".xml", settings);
                     writer.WriteStartDocument();
 
                     writer.WriteStartElement("xml");
@@ -128,7 +140,7 @@ namespace k173613_Q2
                 }
             }
 
-            Console.WriteLine("\nXML File is been Generated to Folder: " + mainFolder);
+            Console.WriteLine("\nXML File is been Generated to Folder: k173613_Q2/bin/Debug/netcoreapp3.1" + mainFolder);
 
             Console.ReadLine();
         }
