@@ -41,7 +41,7 @@ namespace k173613_Q2
             int i = 0;
             foreach (HtmlNode node in doc.DocumentNode.SelectNodes("//div[@class='table-responsive']"))
             {
-                categories[i] = node.SelectSingleNode(".//h4").InnerHtml.Trim();   // Category Heading
+                categories[i] = node.SelectSingleNode(".//h4").InnerHtml.Trim().Replace("/", "-");   // Category Heading
                 i += 1;
             }
 

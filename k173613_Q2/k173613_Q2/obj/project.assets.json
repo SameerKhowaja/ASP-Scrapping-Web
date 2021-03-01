@@ -74,11 +74,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\k173613_Q2.csproj",
+      "projectUniqueName": "D:\\Projects\\ASP Assignments\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\k173613_Q2.csproj",
       "projectName": "k173613_Q2",
-      "projectPath": "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\k173613_Q2.csproj",
+      "projectPath": "D:\\Projects\\ASP Assignments\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\k173613_Q2.csproj",
       "packagesPath": "C:\\Users\\Sameer Khowaja\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\obj\\",
+      "outputPath": "D:\\Projects\\ASP Assignments\\ASP-Scrapping-Web\\k173613_Q2\\k173613_Q2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Sameer Khowaja\\AppData\\Roaming\\NuGet\\NuGet.Config",
