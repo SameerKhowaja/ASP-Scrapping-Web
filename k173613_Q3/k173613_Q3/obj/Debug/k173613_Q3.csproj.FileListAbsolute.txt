@@ -1,0 +1,10 @@
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q3\k173613_Q3\bin\Debug\k173613_Q3.exe.config
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q3\k173613_Q3\bin\Debug\k173613_Q3.exe
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q3\k173613_Q3\bin\Debug\k173613_Q3.pdb
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q3\k173613_Q3\obj\Debug\k173613_Q3.csprojAssemblyReference.cache
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q3\k173613_Q3\obj\Debug\k173613_Q3.Form1.resources
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q3\k173613_Q3\obj\Debug\k173613_Q3.Properties.Resources.resources
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q3\k173613_Q3\obj\Debug\k173613_Q3.csproj.GenerateResource.cache
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q3\k173613_Q3\obj\Debug\k173613_Q3.csproj.CoreCompileInputs.cache
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q3\k173613_Q3\obj\Debug\k173613_Q3.exe
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q3\k173613_Q3\obj\Debug\k173613_Q3.pdb
