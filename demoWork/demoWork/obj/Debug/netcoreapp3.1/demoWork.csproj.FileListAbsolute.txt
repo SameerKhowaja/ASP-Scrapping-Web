@@ -1,0 +1,13 @@
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\bin\Debug\netcoreapp3.1\demoWork.exe
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\bin\Debug\netcoreapp3.1\demoWork.deps.json
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\bin\Debug\netcoreapp3.1\demoWork.runtimeconfig.json
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\bin\Debug\netcoreapp3.1\demoWork.runtimeconfig.dev.json
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\bin\Debug\netcoreapp3.1\demoWork.dll
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\bin\Debug\netcoreapp3.1\demoWork.pdb
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\obj\Debug\netcoreapp3.1\demoWork.csprojAssemblyReference.cache
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\obj\Debug\netcoreapp3.1\demoWork.AssemblyInfoInputs.cache
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\obj\Debug\netcoreapp3.1\demoWork.AssemblyInfo.cs
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\obj\Debug\netcoreapp3.1\demoWork.csproj.CoreCompileInputs.cache
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\obj\Debug\netcoreapp3.1\demoWork.dll
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\obj\Debug\netcoreapp3.1\demoWork.pdb
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\demoWork\demoWork\obj\Debug\netcoreapp3.1\demoWork.genruntimeconfig.cache
