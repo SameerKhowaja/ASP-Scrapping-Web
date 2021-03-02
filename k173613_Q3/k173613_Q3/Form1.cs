@@ -55,7 +55,7 @@ namespace k173613_Q3
                 comboBox1.Items.Add(folder_name);
 
                 // Get file information
-                string[] oFiles = Directory.GetFiles(@"D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q2\k173613_Q2\bin\Debug\netcoreapp3.1\AllRecords\01-Mar-21 10-21-27 PM\" + folder_name, "*.xml");
+                string[] oFiles = Directory.GetFiles(@"D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q2\k173613_Q2\bin\Debug\netcoreapp3.1\AllRecords\" + myFolder_str + @"\" + folder_name, "*.xml");
                 foreach (String file_name in oFiles)
                 {
                     doc.Load(file_name);
@@ -86,10 +86,12 @@ namespace k173613_Q3
             // Get the elapsed time as a TimeSpan value.
             TimeSpan ts = stopWatch.Elapsed;
             // Format and display the TimeSpan value. 
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}",
+            string elapsedTime = String.Format("{2:00}.{3:00}",
                 ts.Hours, ts.Minutes, ts.Seconds,
                 ts.Milliseconds / 10);
-            label3.Text += " ( " + elapsedTime + " )";
+            label3.Text += " ( " + elapsedTime + " Seconds )";
+
+            stopWatch.Reset();
         }
 
         private void Form1_Load(object sender, EventArgs e)

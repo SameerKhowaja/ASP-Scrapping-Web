@@ -24,3 +24,16 @@ D:\Projects\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\obj\Debug\netcoreapp3.1\k173
 D:\Projects\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\obj\Debug\netcoreapp3.1\k173613_Q1.dll
 D:\Projects\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\obj\Debug\netcoreapp3.1\k173613_Q1.pdb
 D:\Projects\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\obj\Debug\netcoreapp3.1\k173613_Q1.genruntimeconfig.cache
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\bin\Debug\netcoreapp3.1\k173613_Q1.exe
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\bin\Debug\netcoreapp3.1\k173613_Q1.deps.json
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\bin\Debug\netcoreapp3.1\k173613_Q1.runtimeconfig.json
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\bin\Debug\netcoreapp3.1\k173613_Q1.runtimeconfig.dev.json
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\bin\Debug\netcoreapp3.1\k173613_Q1.dll
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\bin\Debug\netcoreapp3.1\k173613_Q1.pdb
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\obj\Debug\netcoreapp3.1\k173613_Q1.csprojAssemblyReference.cache
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\obj\Debug\netcoreapp3.1\k173613_Q1.AssemblyInfoInputs.cache
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\obj\Debug\netcoreapp3.1\k173613_Q1.AssemblyInfo.cs
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\obj\Debug\netcoreapp3.1\k173613_Q1.csproj.CoreCompileInputs.cache
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\obj\Debug\netcoreapp3.1\k173613_Q1.dll
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\obj\Debug\netcoreapp3.1\k173613_Q1.pdb
+D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q1\k173613_Q1\obj\Debug\netcoreapp3.1\k173613_Q1.genruntimeconfig.cache
