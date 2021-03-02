@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,27 +20,41 @@ namespace k173613_Q3
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        // Timer
+        Stopwatch stopWatch = new Stopwatch();
+        // DataTable
+        DataTable dt = new DataTable();
+        BindingSource bs = new BindingSource();
+
+        // Method will load all data to form
+        void LoadData()
         {
-            // Contain category names from folder
-            var allFolders = new DirectoryInfo(@"D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q2\k173613_Q2\bin\Debug\netcoreapp3.1\AllRecords\01-Mar-21 10-21-27 PM").GetDirectories()
+            // flush all data on first use
+            dt.Clear();
+            comboBox1.Items.Clear();
+
+            // Get Lastly Created/Modified Folder Path
+            var directory = new DirectoryInfo(@"D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q2\k173613_Q2\bin\Debug\netcoreapp3.1\AllRecords");
+            var myFolder = (from f in directory.GetDirectories()
+                            orderby f.LastWriteTime descending
+                            select f).First();
+            String myFolder_str = Convert.ToString(myFolder);
+
+            //set label text
+            label4.Text = "Folder Name: " + myFolder_str;
+
+            // Get All category names from myFolder
+            var allFolders = new DirectoryInfo(@"D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q2\k173613_Q2\bin\Debug\netcoreapp3.1\AllRecords\" + myFolder_str).GetDirectories()
                 .Select(x => x.Name)
                 .ToArray();
-
-            foreach (String folder_name in allFolders)
-            {
-                // Adding elements in the combobox
-                comboBox1.Items.Add(folder_name);
-            }
-
-            // Column Names
-            dataGridView1.Columns.Add("CategoryName", "Category");
-            dataGridView1.Columns.Add("ScripName", "Scrip");
-            dataGridView1.Columns.Add("ScripPrize", "Prize");
 
             XmlDocument doc = new XmlDocument();
             foreach (String folder_name in allFolders)
             {
+                // Adding elements in the combobox
+                comboBox1.Items.Add(folder_name);
+
+                // Get file information
                 string[] oFiles = Directory.GetFiles(@"D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q2\k173613_Q2\bin\Debug\netcoreapp3.1\AllRecords\01-Mar-21 10-21-27 PM\" + folder_name, "*.xml");
                 foreach (String file_name in oFiles)
                 {
@@ -54,26 +69,76 @@ namespace k173613_Q3
                     //Console.WriteLine(scriptName + scriptPrize);
 
                     // Add Rows to Data Grid
-                    dataGridView1.Rows.Add(folder_name, scriptName, scriptPrize);
+                    dt.Rows.Add(new object[] { folder_name, scriptName, scriptPrize });
                 }
             }
+
+            bs.DataSource = dt;
+            dataGridView1.DataSource = bs;
 
             //Data Grid Count
             int rowsCount = dataGridView1.Rows.Count;
             label3.Text = "About " + Convert.ToString(rowsCount) + " results";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void GetProcessingTime()
         {
-            String FilterCategoryName = comboBox1.Text; // Selected Category
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
-            bs.Filter = "Category like '%CHEMICAL%'";
+            // Get the elapsed time as a TimeSpan value.
+            TimeSpan ts = stopWatch.Elapsed;
+            // Format and display the TimeSpan value. 
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}",
+                ts.Hours, ts.Minutes, ts.Seconds,
+                ts.Milliseconds / 10);
+            label3.Text += " ( " + elapsedTime + " )";
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Column Names add to datatable
+            dt.Columns.Add("Category", typeof(String));
+            dt.Columns.Add("Scrip", typeof(String));
+            dt.Columns.Add("Prize", typeof(String));
+
+            stopWatch.Start();
+            LoadData();
+            stopWatch.Stop();
+
+            GetProcessingTime();
+        }
+
+        // Method for Filtering Data Grid
+        void filterDataGrid(String FilterCategoryName = "%")
+        {
+            bs.DataSource = dt;
+            bs.Filter = "Category like '" + FilterCategoryName + "'";
             dataGridView1.DataSource = bs;
 
             //Data Grid Count
             int rowsCount = dataGridView1.Rows.Count;
             label3.Text = "About " + Convert.ToString(rowsCount) + " results";
+        }
+
+        // Search Button
+        private void button1_Click(object sender, EventArgs e)
+        {
+            stopWatch.Start();
+            String FilterCategoryName = comboBox1.Text; // Selected Category
+            filterDataGrid(FilterCategoryName);
+            stopWatch.Stop();
+
+            GetProcessingTime();
+        }
+
+        // Refresh Button
+        private void button2_Click(object sender, EventArgs e)
+        {
+            stopWatch.Start();
+            comboBox1.Text = "";
+            LoadData();
+            filterDataGrid();
+            stopWatch.Stop();
+
+            GetProcessingTime();
         }
     }
 }

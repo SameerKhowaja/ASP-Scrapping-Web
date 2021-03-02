@@ -48,7 +48,7 @@ namespace k173613_Q2
             // Generate Folders
             System.IO.Directory.CreateDirectory("AllRecords");
             DateTime currentDateTime = DateTime.Now;
-            String mainFolder = "AllRecords/" + Convert.ToString(currentDateTime).Replace(":", "-");
+            String mainFolder = "AllRecords/" + Convert.ToString(currentDateTime).Replace(":", ".");
             System.IO.Directory.CreateDirectory(mainFolder);    // main folder
             for(int j=0; j<totalCategory; j++)
             {
@@ -140,7 +140,7 @@ namespace k173613_Q2
                 }
             }
 
-            Console.WriteLine("\nXML File is been Generated to Folder: k173613_Q2/bin/Debug/netcoreapp3.1" + mainFolder);
+            Console.WriteLine("\nXML File is been Generated to Folder: k173613_Q2/bin/Debug/netcoreapp3.1/" + mainFolder);
 
             Console.ReadLine();
         }
