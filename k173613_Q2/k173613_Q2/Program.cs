@@ -13,13 +13,10 @@ namespace k173613_Q2
     {
         static void Main(string[] args)
         {
-            //string path = "";
-            //path = ConfigurationManager.AppSettings.Get("abc");
-
-            Console.Write("Enter File Name with path: ");
-            String path = Console.ReadLine();
-            string file_name = @path;
             //string file_name = @"D:\Summary23Feb21.html";
+            string file_name = "";
+            file_name = ConfigurationManager.AppSettings.Get("FilePath");
+
             try
             {
                 string check = File.ReadAllText(file_name);
@@ -49,10 +46,14 @@ namespace k173613_Q2
                 i += 1;
             }
 
+            // Dir Path Config
+            string dir_path = "";
+            dir_path = ConfigurationManager.AppSettings.Get("DirPath");
+
             // Generate Folders
-            System.IO.Directory.CreateDirectory("AllRecords");
+            System.IO.Directory.CreateDirectory(dir_path);
             DateTime currentDateTime = DateTime.Now;
-            String mainFolder = "AllRecords/" + Convert.ToString(currentDateTime).Replace(":", ".");
+            String mainFolder = dir_path + Convert.ToString(currentDateTime).Replace(":", ".");
             System.IO.Directory.CreateDirectory(mainFolder);    // main folder
             for(int j=0; j<totalCategory; j++)
             {
@@ -144,7 +145,7 @@ namespace k173613_Q2
                 }
             }
 
-            Console.WriteLine("\nXML File is been Generated to Folder: k173613_Q2/bin/Debug/netcoreapp3.1/" + mainFolder);
+            Console.WriteLine("\nFile has been Generated to Path: \n" + mainFolder);
 
             Console.ReadLine();
         }

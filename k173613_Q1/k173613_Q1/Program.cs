@@ -8,9 +8,9 @@ namespace k173613_Q1
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter URL: ");
+            Console.Write("Enter Website URL: ");
             String url = Console.ReadLine();
-            Console.Write("Enter Path to Save File: ");
+            Console.Write("Enter Path Where to Save File: ");
             String path = Console.ReadLine();
 
             // var url = "https://www.psx.com.pk/market-summary/";
@@ -27,7 +27,7 @@ namespace k173613_Q1
 
             string content = html.Result;
             File.WriteAllText(file_name, content);
-            Console.WriteLine(file_name + "  Saved to " + path);
+            Console.WriteLine("File Saved to : " + file_name);
 
             Console.ReadLine();
         }
