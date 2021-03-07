@@ -5,6 +5,7 @@ using HtmlAgilityPack;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Xml;
+using System.Configuration;
 
 namespace k173613_Q2
 {
@@ -12,6 +13,9 @@ namespace k173613_Q2
     {
         static void Main(string[] args)
         {
+            //string path = "";
+            //path = ConfigurationManager.AppSettings.Get("abc");
+
             Console.Write("Enter File Name with path: ");
             String path = Console.ReadLine();
             string file_name = @path;

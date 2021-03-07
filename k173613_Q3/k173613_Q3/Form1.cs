@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Configuration;
 
 namespace k173613_Q3
 {
@@ -26,6 +27,9 @@ namespace k173613_Q3
         DataTable dt = new DataTable();
         BindingSource bs = new BindingSource();
 
+        //Path
+        string dir_path = ConfigurationManager.AppSettings.Get("DirPath");
+
         // Method will load all data to form
         void LoadData()
         {
@@ -34,7 +38,7 @@ namespace k173613_Q3
             comboBox1.Items.Clear();
 
             // Get Lastly Created/Modified Folder Path
-            var directory = new DirectoryInfo(@"D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q2\k173613_Q2\bin\Debug\netcoreapp3.1\AllRecords");
+            var directory = new DirectoryInfo(dir_path);
             var myFolder = (from f in directory.GetDirectories()
                             orderby f.LastWriteTime descending
                             select f).First();
@@ -44,7 +48,7 @@ namespace k173613_Q3
             label4.Text = "Folder Name: " + myFolder_str;
 
             // Get All category names from myFolder
-            var allFolders = new DirectoryInfo(@"D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q2\k173613_Q2\bin\Debug\netcoreapp3.1\AllRecords\" + myFolder_str).GetDirectories()
+            var allFolders = new DirectoryInfo(dir_path + myFolder_str).GetDirectories()
                 .Select(x => x.Name)
                 .ToArray();
 
@@ -55,7 +59,7 @@ namespace k173613_Q3
                 comboBox1.Items.Add(folder_name);
 
                 // Get file information
-                string[] oFiles = Directory.GetFiles(@"D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q2\k173613_Q2\bin\Debug\netcoreapp3.1\AllRecords\" + myFolder_str + @"\" + folder_name, "*.xml");
+                string[] oFiles = Directory.GetFiles(dir_path + myFolder_str + @"\" + folder_name, "*.xml");
                 foreach (String file_name in oFiles)
                 {
                     doc.Load(file_name);
