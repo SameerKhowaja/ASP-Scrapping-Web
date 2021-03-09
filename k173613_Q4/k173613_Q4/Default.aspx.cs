@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -17,15 +18,25 @@ namespace WebApplication2
         }
 
         [System.Web.Services.WebMethod]
-        public static string TestFunction(string Username)
+        public static string FolderName()
         {
-            return "Hello " + Username;
+            //Path
+            string dir_path = ConfigurationManager.AppSettings.Get("DirPath");
+            // Get Lastly Created/Modified Folder Path
+            var directory = new DirectoryInfo(dir_path);
+            var myFolder = (from f in directory.GetDirectories()
+                            orderby f.LastWriteTime descending
+                            select f).First();
+            String myFolder_str = Convert.ToString(myFolder);
+
+            return myFolder_str;
         }
 
         [System.Web.Services.WebMethod]
         public static string[] LoadCategory()
         {
-            string dir_path = @"D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q2\k173613_Q2\bin\Debug\netcoreapp3.1\All-PSX-Records\";
+            //Path
+            string dir_path = ConfigurationManager.AppSettings.Get("DirPath");
             // Get Lastly Created/Modified Folder Path
             var directory = new DirectoryInfo(dir_path);
             var myFolder = (from f in directory.GetDirectories()
@@ -42,7 +53,8 @@ namespace WebApplication2
         [System.Web.Services.WebMethod]
         public static Tuple<string[], string[], string[]> GetAllData()
         {
-            string dir_path = @"D:\Projects\ASP Assignments\ASP-Scrapping-Web\k173613_Q2\k173613_Q2\bin\Debug\netcoreapp3.1\All-PSX-Records\";
+            //Path
+            string dir_path = ConfigurationManager.AppSettings.Get("DirPath");
             // Get Lastly Created/Modified Folder Path
             var directory = new DirectoryInfo(dir_path);
             var myFolder = (from f in directory.GetDirectories()

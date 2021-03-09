@@ -18,9 +18,26 @@
     
 <body style="background-color:#3EAF86">
     <script type="text/javascript">
-
         // Load Data
         function Searching() {
+            // Folder Name
+            $.ajax({
+                type: "POST",
+                url: 'Default.aspx/FolderName',
+                //data: "{CategoryNames:'" + Category + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                cache: false,
+                async: true,
+                success: function (data) {
+                    $("#folderName").html(data.d);
+                },
+                error: function (x, e) {
+                    //in case of any error , it will come in this function;
+                    alert('Error');
+                }
+            });
+
             // Onload Load Categories to Options
             $.ajax({
                 type: "POST",
@@ -55,6 +72,9 @@
                     for (var i = 0; i < response.Item1.length; i++) {
                         $('#myTable tbody').append("<tr><td>" + response.Item1[i] + "</td><td>" + response.Item2[i] + "</td><td>" + response.Item3[i] + "</td></tr>");
                     }
+
+                    // Data Rows Count
+                    $("#tableRows").html($('#myTable tr').length);
                 },
                 error: function (x, e) {
                     //in case of any error , it will come in this function;
@@ -69,22 +89,29 @@
 
             // Load Data on Refresh BTN Click
             $("#btnRefresh").click(function () {
+                // Remove Table Rows and selectbox
+                $("#myTable > tbody").empty();
+                $("#categorySelected").empty();
+                $("#categorySelected").append('<option>...</option>');
+
                 Searching();
-                var $rowCount = $('#myTable tr').length;
             });
 
             // Table Search by Category
             $("#btnSearch").click(function () {
+                var rowsCount = 0;
                 $.each($("#myTable tbody tr"), function () {
                     if ($(this).text().toLowerCase().indexOf($('#categorySelected').find(":selected").text().toLowerCase()) === -1) {
                         $(this).hide();
                     }
                     else {
+                        rowsCount++;
                         $(this).show();
                     }
-                    var rowCount = $('#myTable tr').length;
-                    $("#tableRows").text = rowCount;
                 });
+                // Data Rows Count
+                var totalRows = $('#myTable tr').length;
+                $("#tableRows").html(rowsCount + " of " + totalRows);
             }); 
         });
     </script>
@@ -119,27 +146,28 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h5 class="text-center" style="color:aliceblue;">About <span id="tableRows"></span> results ( )</h5>
+                    <h5 class="text-center" style="color:aliceblue;">About <span id="tableRows"></span> results ( Folder Selected : <span id="folderName"></span> )</h5>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-12">
-                    <table id="myTable" class="table table-bordered table-hover" style="margin: 10px 5px; padding: 1px 5px;">
+                    <table id="myTable" class="table table-bordered table-hover table-responsive" style="margin: 10px 5px; padding: 1px 5px;">
                         <thead>
                             <tr style="background-color:black; color:aqua">
-                                <th  class="text-center">Category</th>
-                                <th  class="text-center">Scrip</th>
-                                <th  class="text-center">Price</th>
+                                <th  class="text-center">CATEGORY</th>
+                                <th  class="text-center">SCRIP</th>
+                                <th  class="text-center">PRICE</th>
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody style="color:black">
                             <!-- Table Data on Runtime -->
                         </tbody>
                     </table>
                 </div>
             </div>
+            <br />
         </div>
     </form>
 </body>
